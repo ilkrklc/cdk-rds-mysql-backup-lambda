@@ -28,7 +28,7 @@
     "s3",
     "backup"
   ],
-  "stability": "experimental",
+  "stability": "stable",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
