@@ -1,0 +1,101 @@
+{
+  "name": "cdk-rds-mysql-backup-lambda",
+  "description": "A flexible AWS CDK construct for scheduled RDS MySQL backups to S3.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Ilker Kilic",
+    "email": "ilkrklc@gmail.com",
+    "url": "https://github.com/ilkrklc"
+  },
+  "homepage": "https://github.com/ilkrklc/cdk-rds-mysql-backup-lambda",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilkrklc/cdk-rds-mysql-backup-lambda"
+  },
+  "bugs": {
+    "url": "https://github.com/ilkrklc/cdk-rds-mysql-backup-lambda/issues"
+  },
+  "keywords": [
+    "aws",
+    "cdk",
+    "awscdk",
+    "aws-cdk",
+    "aws-cdk-construct",
+    "mysql",
+    "rds",
+    "lambda",
+    "s3",
+    "backup"
+  ],
+  "stability": "experimental",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "jsii -v",
+    "build:watch": "jsii -w",
+    "test-rds:synth": "cdk synth --app \"npx ts-node test/bin/test-rds.ts\" TestRdsStack --require-approval never",
+    "test-rds:deploy": "cdk deploy --app \"npx ts-node test/bin/test-rds.ts\" TestRdsStack --require-approval never",
+    "test-rds:destroy": "cdk destroy --app \"npx ts-node test/bin/test-rds.ts\" TestRdsStack --force",
+    "test:synth": "cdk synth --app \"npx ts-node test/bin/test.ts\" TestStack --require-approval never",
+    "test:deploy": "cdk deploy --app \"npx ts-node test/bin/test.ts\" TestStack --require-approval never",
+    "test:destroy": "cdk destroy --app \"npx ts-node test/bin/test.ts\" TestStack --force",
+    "prepackage": "npm run build && npm run build --prefix lambda",
+    "package": "jsii-pacmak -v",
+    "publish:npm": "publib-npm",
+    "publish:maven": "publib-maven",
+    "publish:nuget": "publib-nuget",
+    "publish:golang": "publib-golang",
+    "publish:pypi": "publib-pypi"
+  },
+  "jsii": {
+    "outdir": "dist",
+    "versionFormat": "short",
+    "excludeTypescript": [
+      "lambda",
+      "test"
+    ],
+    "targets": {
+      "java": {
+        "package": "cdk.rds.mysql.backup.lambda",
+        "maven": {
+          "groupId": "io.github.ilkrklc",
+          "artifactId": "cdk.rds.mysql.backup.lambda"
+        }
+      },
+      "python": {
+        "distName": "cdk-rds-mysql-backup-lambda",
+        "module": "cdk_rds_mysql_backup_lambda"
+      },
+      "dotnet": {
+        "namespace": "CDK.RDS.MySQL.Backup.Lambda",
+        "packageId": "CDK.RDS.MySQL.Backup.Lambda"
+      },
+      "go": {
+        "moduleName": "github.com/ilkrklc/cdk-rds-mysql-backup-lambda",
+        "packageName": "cdkrdsmysqlbackuplambda"
+      }
+    }
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "2.128.0",
+    "constructs": "^10.3.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cloudformation": "^3.515.0",
+    "@types/node": "^20.11.19",
+    "aws-cdk-lib": "2.128.0",
+    "constructs": "10.3.0",
+    "jsii": "^5.3.18",
+    "jsii-pacmak": "^1.94.0",
+    "publib": "^0.2.794",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.3.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.515.0"
+  },
+  "bundleDependencies": [
+    "@aws-sdk/client-ec2"
+  ]
+}

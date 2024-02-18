@@ -1,0 +1,24 @@
+# misc
+.DS_Store
+
+# dependencies
+**/node_modules
+
+# jsii output
+.jsii
+/tsconfig.json
+tsconfig.tsbuildinfo
+/dist
+
+# lambda function output
+lib/lambda.zip
+lambda/dist
+
+# typescript build output
+**/*.js
+**/*.d.ts
+
+# cdk related files
+**/.cdk.staging
+**/cdk.out
+**/cdk.context.json

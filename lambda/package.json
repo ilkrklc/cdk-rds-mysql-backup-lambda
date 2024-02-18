@@ -1,0 +1,20 @@
+{
+  "name": "cdk-rds-mysql-backup-lambda-function",
+  "version": "1.0.0",
+  "description": "An AWS Lambda function to backup RDS instance.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "npm prune --omit=dev && cp mysqldump dist && zip -r ../lib/lambda.zip ./node_modules ./dist && npm i"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.133",
+    "@types/node": "^20.11.19",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ec2": "^3.515.0",
+    "@aws-sdk/client-s3": "^3.515.0",
+    "dotenv": "^16.4.4"
+  }
+}

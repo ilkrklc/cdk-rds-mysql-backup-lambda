@@ -1,0 +1,48 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Install dependencies
+        run: |
+          npm install
+          cd lambda && npm install
+
+      - name: Generate Bindings For All Languages
+        run: npm run package
+
+      - name: Install Global CDK Dependencies
+        run: npm install -g aws-cdk
+
+      - name: CDK Synth
+        run: npm run test:synth
