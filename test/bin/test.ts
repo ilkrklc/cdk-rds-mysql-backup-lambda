@@ -4,7 +4,7 @@ import { TestStack } from '../lib/test-stack';
 import { fetchStackOutputs } from '../sdk/cloudformation';
 
 async function deploy() {
-  const rdsStackOutputs = await fetchStackOutputs('TestRdsStack');
+  const rdsStackOutputs = await fetchStackOutputs('PalaventuraRdsStack');
   const vpcStackOutputs = await fetchStackOutputs('PalaventuraVpcStack');
 
   const app = new cdk.App();
