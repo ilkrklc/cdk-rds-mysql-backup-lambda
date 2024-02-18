@@ -27,8 +27,6 @@ The `RDSMySQLBackupLambda` is an AWS CDK Construct that provides an automated so
 
 The RDSMySQLBackupLambda AWS CDK Construct automates the process of backing up RDS MySQL databases to S3, leveraging AWS Lambda and other AWS services. Here’s an overview of its operation:
 
-### Architecture and Flow:
-
 **1. Lambda Function:**
 
 - A Lambda function is the core component that performs the database backup. It's triggered based on the specified schedule (defaulting to daily at 00:00 UTC).
