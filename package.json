@@ -1,7 +1,7 @@
 {
   "name": "cdk-rds-mysql-backup-lambda",
   "description": "A flexible AWS CDK construct for scheduled RDS MySQL backups to S3.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "author": {
     "name": "Ilker Kilic",
