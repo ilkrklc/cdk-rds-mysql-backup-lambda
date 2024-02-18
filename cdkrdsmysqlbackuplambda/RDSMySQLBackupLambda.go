@@ -10,20 +10,15 @@ import (
 	"github.com/ilkrklc/cdk-rds-mysql-backup-lambda/cdkrdsmysqlbackuplambda/internal"
 )
 
-// Experimental.
 type RDSMySQLBackupLambda interface {
 	constructs.Construct
 	// The lambda function to backup the RDS instance.
-	// Experimental.
 	LambdaFunction() awslambda.Function
 	// The tree node.
-	// Experimental.
 	Node() constructs.Node
 	// The S3 bucket created to store the RDS backups.
-	// Experimental.
 	S3Bucket() awss3.Bucket
 	// Returns a string representation of this construct.
-	// Experimental.
 	ToString() *string
 }
 
@@ -63,7 +58,6 @@ func (j *jsiiProxy_RDSMySQLBackupLambda) S3Bucket() awss3.Bucket {
 }
 
 
-// Experimental.
 func NewRDSMySQLBackupLambda(scope constructs.Construct, id *string, props *RDSMySQLBackupLambdaProps) RDSMySQLBackupLambda {
 	_init_.Initialize()
 
@@ -81,7 +75,6 @@ func NewRDSMySQLBackupLambda(scope constructs.Construct, id *string, props *RDSM
 	return &j
 }
 
-// Experimental.
 func NewRDSMySQLBackupLambda_Override(r RDSMySQLBackupLambda, scope constructs.Construct, id *string, props *RDSMySQLBackupLambdaProps) {
 	_init_.Initialize()
 
@@ -109,7 +102,6 @@ func NewRDSMySQLBackupLambda_Override(r RDSMySQLBackupLambda, scope constructs.C
 // this type-testing method instead.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Experimental.
 func RDSMySQLBackupLambda_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
